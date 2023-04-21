@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+:root {
+  --c-gh-bg-light: #373e47;
+  --c-gh-bg-middle: #2d333b;
+  --c-gh-bg-dark: #22272e;
+
+  --c-gh-text-light: #cdd9e5;
+  --c-gh-text-middle: #adbac7;
+  --c-gh-text-dark: #768390;
+
+  --c-gh-border-light: #444c56;
+
+  --c-gh-link: #539bf5;
+}
+
+p, h1, h2, h3, h4, h5, span, a, div {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif !important;
+  color: var(--c-gh-text-middle) !important;
+}
+
+a {
+  color: var(--c-gh-link) !important;
+  text-decoration: none !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--c-gh-link) !important;
+  text-decoration: underline !important;
+}
+
+#app {
+  color: var(--c-gh-text-light) !important;
+  background: var(--c-gh-bg-dark) !important;
+}
+
+.navbar {
+  background-color: var(--c-gh-bg-light) !important;
+}
+
+.navbar .navbar-menu {
+  flex-direction: row-reverse !important;
+}
+
+.navbar .navbar-menu .navbar-start .navbar-item {
+  color: var(--c-gh-text-light) !important;
+  font-weight: 600 !important;
+}
+
+.navbar .navbar-menu .navbar-start .navbar-item:hover,
+.navbar .navbar-menu .navbar-start .navbar-item:active,
+.navbar .navbar-menu .navbar-start .navbar-item:focus {
+  color: var(--c-gh-text-middle) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+article.message {
+  background-color: var(--c-gh-bg-dark) !important;
+  border-radius: 6px;
+  border: 1px solid var(--c-gh-border-light) !important;
+  box-shadow: none !important;
+}
+
+article.message .message-header {
+  background-color: var(--c-gh-bg-dark) !important;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid var(--c-gh-border-light) !important;
+  color: var(--c-gh-text-light) !important;
+}
+
+article.message .message-body {
+  color: var(--c-gh-text-middle) !important;
+}
+
+.group-title {
+  color: var(--c-gh-text-middle) !important;
+}
+
+.card {
+  background-color: var(--c-gh-bg-dark) !important;
+  border-radius: 6px;
+  border: 1px solid var(--c-gh-border-light) !important;
+  box-shadow: none !important;
+}
+
+.card:hover {
+  transform: none !important;
+}
+
+.card a:hover{
+  text-decoration: none !important;
+}
+
+.card .card-content {
+  color: var(--c-gh-text-dark) !important;
+}
+
+.card .card-content .media-left {
+  color: var(--c-gh-text-dark) !important;
+}
+
+.card:hover .card-content .media-left {
+  color: var(--c-gh-text-dark) !important;
+  text-decoration: none !important;
+}
+
+
+.card .card-content .media-content .title {
+  color: var(--c-gh-link) !important;
+  text-decoration: none !important;
+  margin-bottom: 0 !important;
+}
+
+.card:hover .card-content .media-content .title {
+  color: var(--c-gh-link) !important;
+  text-decoration: underline !important;
+}
+
+.card .card-content .media-content .subtitle {
+  text-decoration: none !important;
+  margin-top: 0.65rem !important;
+  color: var(--c-gh-text-dark) !important;
+}
+
+footer {
+  background-color: var(--c-gh-bg-dark) !important;
+  box-shadow: none !important;
+  color: var(--c-gh-text-dark) !important;
+  padding: 2rem 3rem !important;
+}
+
+footer p {
+  color: var(--c-gh-text-dark) !important;
+}
+
