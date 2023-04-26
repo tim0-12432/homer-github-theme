@@ -1,10 +1,7 @@
-name: Build and dev release
+name: Build and release
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
 
@@ -24,7 +21,7 @@ jobs:
       run: npm run lint
       working-directory: ./utils
     - id: appVersion
-      run: echo "VERSION=$(cat VERSION.txt | sed "s/$/-/g"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
+      run: echo "VERSION=$(cat VERSION.txt)" >> $GITHUB_OUTPUT
     - name: Upload reports to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
@@ -76,7 +73,7 @@ jobs:
           - ${{ runner.os }}-mincss
       id: cache-css
     - id: appVersion
-      run: echo "VERSION=$(cat VERSION.txt | sed "s/$/-/g"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
+      run: echo "VERSION=$(cat VERSION.txt)" >> $GITHUB_OUTPUT
     - name: Upload files to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
@@ -92,7 +89,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fail_on_unmatched_files: true
         generate_release_notes: true
-        prerelease: true
         tag_name: v${{ steps.appVersion.outputs.version }}
         name: v${{ steps.appVersion.outputs.version }}
         files: |
