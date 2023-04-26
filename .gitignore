@@ -1,1 +1,4 @@
 .vscode
+assets/*.min.*
+utils/node_modules
+*-report.txt

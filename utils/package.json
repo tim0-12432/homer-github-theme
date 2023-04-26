@@ -1,0 +1,14 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "scripts": {
+    "minify": "node generate-minified-css.js",
+    "lint": "node lint-css.js"
+  },
+  "author": "tim0-12432",
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "stylelint": "^15.6.0",
+    "stylelint-config-standard": "^33.0.0"
+  }
+}

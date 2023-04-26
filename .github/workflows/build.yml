@@ -1,0 +1,105 @@
+name: Build and release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Create a pre-release'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+
+  lint:
+    name: Lint CSS files
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./utils
+    - name: Run linter
+      run: npm run lint
+      working-directory: ./utils
+    - id: appVersion
+      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo $GITHUB_SHA | cut -c1-5)"
+    - name: Upload reports to artifacts
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: reports-v${{ steps.appVersion.outputs.version }}
+        path: |
+          linting-report.txt
+
+  build:
+    name: Build CSS files
+    needs: [lint]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./utils
+    - name: Run minifier
+      run: npm run minify
+      working-directory: ./utils
+    - name: Cache CSS
+      uses: actions/cache@v3
+      with:
+        path: assets/gh-theme.min.css
+        enableCrossOsArchive: true
+        key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
+        restore-keys: |
+          - ${{ runner.os }}-mincss
+
+  release:
+    name: Create release
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Load minified CSS
+      uses: actions/cache@v3
+      with:
+        path: assets/gh-theme.min.css
+        enableCrossOsArchive: true
+        fail-on-cache-miss: true
+        key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
+        restore-keys: |
+          - ${{ runner.os }}-mincss
+      id: cache-css
+    - id: appVersion
+      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo $GITHUB_SHA | cut -c1-5)"
+    - name: Upload files to artifacts
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: files-v${{ steps.appVersion.outputs.version }}
+        path: |
+          assets/gh-theme.min.css
+    - name: Upload binary to release
+      uses: softprops/action-gh-release@v1
+      if: steps.cache-css.outputs.cache-hit == 'true'
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fail_on_unmatched_files: true
+        generate_release_notes: true
+        prerelease: ${{ inputs.release }}
+        tag_name: v${{ steps.appVersion.outputs.version }}
+        name: v${{ steps.appVersion.outputs.version }}
+        files: |
+          assets/gh-theme.min.css
