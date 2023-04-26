@@ -82,6 +82,9 @@ jobs:
         path: |
           assets/gh-theme.min.css
           assets/config.yml
+          README.md
+          VERSION.txt
+          LICENSE.md
     - name: Upload binary to release
       uses: softprops/action-gh-release@v1
       if: steps.cache-css.outputs.cache-hit == 'true'
@@ -94,3 +97,6 @@ jobs:
         files: |
           assets/gh-theme.min.css
           assets/config.yml
+          README.md
+          VERSION.txt
+          LICENSE.md
