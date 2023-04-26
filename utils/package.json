@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "scripts": {
     "minify": "node generate-minified-css.js",
-    "lint": "node lint-css.js"
+    "lint": "node lint-css.js",
+    "watch": "nodemon -w assets/gh-theme.css -x \"npm run minify\" -e css"
   },
   "author": "tim0-12432",
   "devDependencies": {
     "csso": "^5.0.5",
+    "nodemon": "^2.0.22",
     "stylelint": "^15.6.0",
     "stylelint-config-standard": "^33.0.0"
   }

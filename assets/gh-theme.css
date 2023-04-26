@@ -11,6 +11,10 @@
   --c-gh-link: #539bf5;
 }
 
+html {
+  overflow-y: auto !important;
+}
+
 p, h1, h2, h3, h4, h5, span, a, div {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif !important;
   color: var(--c-gh-text-middle) !important;
@@ -144,6 +148,14 @@ article.message .message-body {
   color: var(--c-gh-text-middle) !important;
 }
 
+.column div {
+  margin-bottom: 1rem;
+}
+
+.column div:last-child {
+  margin-bottom: 0;
+}
+
 .group-title {
   color: var(--c-gh-text-middle) !important;
 }
@@ -172,7 +184,9 @@ article.message .message-body {
   color: var(--c-gh-text-dark) !important;
 }
 
-.card:hover .card-content .media-left {
+.card:hover .card-content .media-left,
+.card:active .card-content .media-left,
+.card:focus .card-content .media-left {
   color: var(--c-gh-text-dark) !important;
   text-decoration: none !important;
 }
@@ -195,16 +209,26 @@ article.message .message-body {
   color: var(--c-gh-text-dark) !important;
 }
 
-.card .card-content .media .status {
+.card:hover .card-content .media-content .subtitle,
+.card:active .card-content .media-content .subtitle,
+.card:focus .card-content .media-content .subtitle {
+  text-decoration: none !important;
+}
+
+.card .card-content .media .status,
+.card .card-content .media .notifs {
   display: block !important;
   position: absolute;
   right: 16px !important;
   bottom: 16px !important;
+  top: auto !important;
   color: var(--c-gh-text-dark) !important;
   font-size: 12px !important;
+  text-transform: capitalize;
 }
 
-.card .card-content .media .status.offline::before {
+.card .card-content .media .status.offline::before,
+.card .card-content .media .status.bad::before {
   background-color: #d75137 !important;
   box-shadow: none !important;
   border: 1px solid var(--c-gh-border-light) !important;
@@ -213,13 +237,41 @@ article.message .message-body {
   border-radius: 50% !important;
 }
 
-.card .card-content .media .status.online::before {
+.card .card-content .media .status.warn::before {
+  background-color: #b07219 !important;
+  box-shadow: none !important;
+  border: 1px solid var(--c-gh-border-light) !important;
+  height: 12px !important;
+  width: 12px !important;
+  border-radius: 50% !important;
+}
+
+.card .card-content .media .status.online::before,
+.card .card-content .media .status.good::before {
   background-color: #468221 !important;
   box-shadow: none !important;
   border: 1px solid var(--c-gh-border-light) !important;
   height: 12px !important;
   width: 12px !important;
   border-radius: 50% !important;
+}
+
+.card .card-content .media .notif {
+  box-shadow: none !important;
+  border: 1px solid var(--c-gh-border-light) !important;
+  height: 2em !important;
+  width: 2em !important;
+  border-radius: 50% !important;
+  color: var(--c-gh-text-light) !important;
+  text-align: center;
+}
+
+.card .card-content .media .notif.running {
+  background-color: #468221 !important;
+}
+
+.card .card-content .media .notif.misc {
+  background-color: #214e82 !important;
 }
 
 .card .card-content .tag {
