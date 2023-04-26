@@ -8,5 +8,5 @@
 </h4>
 
 <h5 align="center">
-  <bold>Disclaimer:</bold> This theme is not in any way connected to the Github brand!
+  <bold>Disclaimer:</bold> This theme is not in any way connected to the official Github brand!
 </h5>
