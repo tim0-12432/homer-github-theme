@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
     - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
       run: npm run lint
       working-directory: ./utils
     - id: appVersion
-      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo $GITHUB_SHA | cut -c1-5)"
+      run: echo "VERSION=$(cat VERSION.txt; echo "-"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
     - name: Upload reports to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
@@ -47,7 +47,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
     - name: Install dependencies
@@ -83,7 +83,7 @@ jobs:
           - ${{ runner.os }}-mincss
       id: cache-css
     - id: appVersion
-      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo '\055'; echo $GITHUB_SHA | cut -c1-5)"
+      run: echo "VERSION=$(cat VERSION.txt; echo "-"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
     - name: Upload files to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3

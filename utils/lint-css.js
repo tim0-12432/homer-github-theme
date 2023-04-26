@@ -18,9 +18,11 @@ stylelint.lint({
     const warnings = data.results[0].warnings;
     console.log("### Linted the CSS:", warnings.length, "warnings found.");
     const report = warnings.map((warning) => {
-        return warning.severity +
+        const string = warning.severity +
             " (" + warning.line + ":" + warning.column + "): " +
             warning.text;
+        console.log("# -- " + string);
+        return string;
     }).join("\n");
     fs.writeFileSync(path.resolve(__dirname, '../linting-report.txt'), report);
 }).catch((err) => {
