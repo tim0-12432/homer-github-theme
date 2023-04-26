@@ -98,7 +98,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fail_on_unmatched_files: true
         generate_release_notes: true
-        prerelease: ${{ inputs.release }}
+        prerelease: ${{ inputs.release || true }}
         tag_name: v${{ steps.appVersion.outputs.version }}
         name: v${{ steps.appVersion.outputs.version }}
         files: |
