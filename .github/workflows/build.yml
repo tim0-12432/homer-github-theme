@@ -31,7 +31,7 @@ jobs:
       run: npm run lint
       working-directory: ./utils
     - id: appVersion
-      run: echo "VERSION=$(cat VERSION.txt; echo "-"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
+      run: echo "VERSION=$(cat VERSION.txt; echo '-'; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
     - name: Upload reports to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
@@ -83,7 +83,7 @@ jobs:
           - ${{ runner.os }}-mincss
       id: cache-css
     - id: appVersion
-      run: echo "VERSION=$(cat VERSION.txt; echo "-"; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
+      run: echo "VERSION=$(cat VERSION.txt; echo '-'; echo $GITHUB_SHA | cut -c1-5)" >> $GITHUB_OUTPUT
     - name: Upload files to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
