@@ -41,6 +41,23 @@ a:active {
   background-color: var(--c-gh-bg-light) !important;
 }
 
+.navbar .navbar-burger {
+  color: var(--c-gh-text-light) !important;
+  font-weight: 600 !important;
+}
+
+.navbar .navbar-burger span {
+  color: inherit !important;
+}
+
+.navbar .navbar-burger:hover,
+.navbar .navbar-burger:focus,
+.navbar .navbar-burger:active {
+  color: var(--c-gh-text-middle) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
 .navbar .navbar-menu {
   flex-direction: row-reverse !important;
 }
