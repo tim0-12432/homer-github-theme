@@ -83,7 +83,7 @@ jobs:
           - ${{ runner.os }}-mincss
       id: cache-css
     - id: appVersion
-      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo $GITHUB_SHA | cut -c1-5)"
+      run: echo "::set-output name=VERSION::$(cat VERSION.txt; echo '\055'; echo $GITHUB_SHA | cut -c1-5)"
     - name: Upload files to artifacts
       if: ${{ always() }}
       uses: actions/upload-artifact@v3
