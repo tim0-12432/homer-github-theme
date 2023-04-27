@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-:root {
-  --c-gh-bg-light: #373e47;
-  --c-gh-bg-middle: #2d333b;
-  --c-gh-bg-dark: #22272e;
-  --c-gh-text-light: #cdd9e5;
-  --c-gh-text-middle: #adbac7;
-  --c-gh-text-dark: #768390;
-  --c-gh-border-light: #444c56;
-  --c-gh-link: #539bf5;
-}
-
 html {
   overflow-y: auto !important;
 }
@@ -42,7 +31,7 @@ a:active {
 }
 
 .navbar {
-  background-color: var(--c-gh-bg-light) !important;
+  background-color: var(--c-gh-bg-middle) !important;
 }
 
 .navbar .navbar-burger {
@@ -180,6 +169,10 @@ article.message .message-body {
   border-radius: 6px !important;
 }
 
+.card .card-content .media.no-subtitle {
+  align-items: baseline !important;
+}
+
 .card .card-content .media-left {
   color: var(--c-gh-text-dark) !important;
 }
@@ -227,33 +220,26 @@ article.message .message-body {
   text-transform: capitalize;
 }
 
+.card .card-content .media .status::before {
+  box-shadow: none !important;
+  border: 1px solid var(--c-gh-border-light) !important;
+  height: 1em !important;
+  width: 1em !important;
+  border-radius: 50% !important;
+}
+
 .card .card-content .media .status.offline::before,
 .card .card-content .media .status.bad::before {
   background-color: #d75137 !important;
-  box-shadow: none !important;
-  border: 1px solid var(--c-gh-border-light) !important;
-  height: 12px !important;
-  width: 12px !important;
-  border-radius: 50% !important;
 }
 
 .card .card-content .media .status.warn::before {
   background-color: #b07219 !important;
-  box-shadow: none !important;
-  border: 1px solid var(--c-gh-border-light) !important;
-  height: 12px !important;
-  width: 12px !important;
-  border-radius: 50% !important;
 }
 
 .card .card-content .media .status.online::before,
 .card .card-content .media .status.good::before {
   background-color: #468221 !important;
-  box-shadow: none !important;
-  border: 1px solid var(--c-gh-border-light) !important;
-  height: 12px !important;
-  width: 12px !important;
-  border-radius: 50% !important;
 }
 
 .card .card-content .media .notif {

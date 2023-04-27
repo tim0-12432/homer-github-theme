@@ -7,7 +7,8 @@ header: true
 footer: '<p>Theme made with <span class="has-text-danger">❤️</span> by <a href="https://github.com/tim0-12432">Timo</a></p>' # set false if you want to hide it.
 
 stylesheet:
-  - "assets/gh-theme.min.css"
+  - "assets/gh-dimmed.min.css"
+  - "assets/gh-base.min.css"
 
 columns: "2"
 theme: default

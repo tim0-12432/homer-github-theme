@@ -4,7 +4,7 @@
   "scripts": {
     "minify": "node generate-minified-css.js",
     "lint": "node lint-css.js",
-    "watch": "nodemon -w assets/gh-theme.css -x \"npm run minify\" -e css"
+    "watch": "nodemon -w assets -x \"npm run minify\" -e css"
   },
   "author": "tim0-12432",
   "devDependencies": {

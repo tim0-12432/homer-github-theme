@@ -1,4 +1,4 @@
-name: Build and dev release
+name: "[Dev] Lint, build and release"
 
 on:
   push:
@@ -52,7 +52,11 @@ jobs:
     - name: Cache CSS
       uses: actions/cache@v3
       with:
-        path: assets/gh-theme.min.css
+        path: |
+          assets/gh-base.min.css
+          assets/gh-dimmed.min.css
+          assets/gh-light.min.css
+          assets/gh-dark.min.css
         enableCrossOsArchive: true
         key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
         restore-keys: |
@@ -68,7 +72,11 @@ jobs:
     - name: Load minified CSS
       uses: actions/cache@v3
       with:
-        path: assets/gh-theme.min.css
+        path: |
+          assets/gh-base.min.css
+          assets/gh-dimmed.min.css
+          assets/gh-light.min.css
+          assets/gh-dark.min.css
         enableCrossOsArchive: true
         fail-on-cache-miss: true
         key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
@@ -83,7 +91,10 @@ jobs:
       with:
         name: files-v${{ steps.appVersion.outputs.version }}
         path: |
-          assets/gh-theme.min.css
+          assets/gh-base.min.css
+          assets/gh-dimmed.min.css
+          assets/gh-light.min.css
+          assets/gh-dark.min.css
           assets/config.yml
     - name: Upload binary to release
       uses: softprops/action-gh-release@v1
@@ -96,5 +107,8 @@ jobs:
         tag_name: v${{ steps.appVersion.outputs.version }}
         name: v${{ steps.appVersion.outputs.version }}
         files: |
-          assets/gh-theme.min.css
+          assets/gh-base.min.css
+          assets/gh-dimmed.min.css
+          assets/gh-light.min.css
+          assets/gh-dark.min.css
           assets/config.yml

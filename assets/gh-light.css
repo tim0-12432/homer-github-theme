@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+:root {
+  --c-gh-bg-light: #373e47;
+  --c-gh-bg-middle: #2d333b;
+  --c-gh-bg-dark: #fff;
+  --c-gh-text-light: #fff;
+  --c-gh-text-middle: #1f2328;
+  --c-gh-text-dark: #656d76;
+  --c-gh-border-light: #d0d7de;
+  --c-gh-link: #539bf5;
+}
