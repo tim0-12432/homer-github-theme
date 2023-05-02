@@ -36,15 +36,15 @@ stylesheet:
 
 <p align="center">
   <a title="Dark theme" href="./docs/screenshot_dark.png">
-    <img src="./docs/screenshot_dark.png" alt="Screenshot of the dark theme" width="32%" />
+    <img src="./docs/screenshot_dark.png" alt="Screenshot of the dark theme" width="25%" />
   </a>
   &nbsp;&nbsp;
   <a title="Dimmed theme" href="./docs/screenshot_dimmed.png">
-    <img src="./docs/screenshot_dimmed.png" alt="Screenshot of the dimmed theme" width="32%" />
+    <img src="./docs/screenshot_dimmed.png" alt="Screenshot of the dimmed theme" width="25%" />
   </a>
   &nbsp;&nbsp;
   <a title="Light theme" href="./docs/screenshot_light.png">
-    <img src="./docs/screenshot_light.png" alt="Screenshot of the light theme" width="32%" />
+    <img src="./docs/screenshot_light.png" alt="Screenshot of the light theme" width="25%" />
   </a>
 </p>
 
