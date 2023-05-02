@@ -55,9 +55,9 @@ jobs:
           assets/gh-light.min.css
           assets/gh-dark.min.css
         enableCrossOsArchive: true
-        key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
+        key: mincss-${{ hashFiles('utils/assets/**') }}
         restore-keys: |
-          - ${{ runner.os }}-mincss
+          mincss
 
   release:
     name: Create release
@@ -76,9 +76,9 @@ jobs:
           assets/gh-dark.min.css
         enableCrossOsArchive: true
         fail-on-cache-miss: true
-        key: ${{ runner.os }}-mincss-${{ hashFiles('utils/package-lock.json') }}
+        key: mincss-${{ hashFiles('utils/assets/**') }}
         restore-keys: |
-          - ${{ runner.os }}-mincss
+          mincss
       id: cache-css
     - id: appVersion
       run: echo "VERSION=$(cat VERSION.txt)" >> $GITHUB_OUTPUT
