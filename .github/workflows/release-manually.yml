@@ -55,9 +55,9 @@ jobs:
           assets/gh-light.min.css
           assets/gh-dark.min.css
         enableCrossOsArchive: true
-        key: mincss-${{ hashFiles('utils/assets/**') }}
+        key: mincss-${{ hashFiles('assets/gh-base.css','assets/gh-dark.css','assets/gh-dimmed.css','assets/gh-light.css') }}
         restore-keys: |
-          mincss
+          mincss-
 
   release:
     name: Create release
@@ -76,9 +76,9 @@ jobs:
           assets/gh-dark.min.css
         enableCrossOsArchive: true
         fail-on-cache-miss: true
-        key: mincss-${{ hashFiles('utils/assets/**') }}
+        key: mincss-${{ hashFiles('assets/gh-base.css','assets/gh-dark.css','assets/gh-dimmed.css','assets/gh-light.css') }}
         restore-keys: |
-          mincss
+          mincss-
       id: cache-css
     - id: appVersion
       run: echo "VERSION=$(cat VERSION.txt)" >> $GITHUB_OUTPUT
