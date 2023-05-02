@@ -4,14 +4,14 @@
 </h1>
 
 <h4 align="center">
-  Github Theme is a theme for the <a href="https://github.com/bastienwirtz/homer">Homer Dashboard.</a>
+  Github Theme is a Github inspired theme for the <a href="https://github.com/bastienwirtz/homer">Homer Dashboard.</a>
 </h4>
 
 <img src="./docs/screenshot_header.png" alt="Screenshot of the theme" align="center" />
 
-<h5 align="center">
-  <bold>Disclaimer:</bold> This theme is not affiliated with the official Github brand in any way.
-</h5>
+<h6 align="center">
+  <bold>Disclaimer:</bold> This theme is not in any way affiliated with the official Github brand.
+</h6>
 
 ## Installation
 
@@ -35,15 +35,17 @@ stylesheet:
 ## Comparison of the themes
 
 <p align="center">
-  <a title="Dark theme" href="./assets/gh-dark.css"><img src="./docs/screenshot_dark.png" alt="Screenshot of the dark theme" width="30%" /></a>
-
+  <a title="Dark theme" href="./docs/screenshot_dark.png">
+    <img src="./docs/screenshot_dark.png" alt="Screenshot of the dark theme" width="32%" />
+  </a>
   &nbsp;&nbsp;
-
-  <a title="Dimmed theme" href="./assets/gh-dimmed.css"><img src="./docs/screenshot_dimmed.png" alt="Screenshot of the dimmed theme" width="30%" /></a>
-
+  <a title="Dimmed theme" href="./docs/screenshot_dimmed.png">
+    <img src="./docs/screenshot_dimmed.png" alt="Screenshot of the dimmed theme" width="32%" />
+  </a>
   &nbsp;&nbsp;
-
-  <a title="Light theme" href="./assets/gh-light.css"><img src="./docs/screenshot_light.png" alt="Screenshot of the light theme" width="30%" /></a>
+  <a title="Light theme" href="./docs/screenshot_light.png">
+    <img src="./docs/screenshot_light.png" alt="Screenshot of the light theme" width="32%" />
+  </a>
 </p>
 
 ## Annotations
