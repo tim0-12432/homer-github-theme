@@ -169,10 +169,6 @@ article.message .message-body {
   border-radius: 6px !important;
 }
 
-.card .card-content .media.no-subtitle {
-  align-items: baseline !important;
-}
-
 .card .card-content .media-left {
   color: var(--c-gh-text-dark) !important;
 }
